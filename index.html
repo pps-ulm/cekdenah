@@ -55,7 +55,7 @@
     <center>
         <p>
         <h3>Masukan 3 digit terakhir No Peserta Anda : <input type="number" id="participantNumber"
-                placeholder="Nomor Peserta" min="0" max="580"></h3>
+                placeholder="Nomor Peserta" min="0" max="545"></h3>
         </p>
 
         <div id="tbInfo">
@@ -67,7 +67,7 @@
                     <td>Nomor Peserta</td>
                 </tr>
                 <tr>
-                    <td rowspan="4">Sabtu / 25 Mei 2024</td>
+                    <td rowspan="3">Sabtu / 25 Mei 2024</td>
                     <td rowspan="2">SESI PAGI ( 09.00 -11.00 WITA )</td>
                     <td>Aula Lt. 4</td>
                     <td>20241121-001 s.d 20241121-240</td>
@@ -80,15 +80,11 @@
               
                 <tr>
                   
-                    <td rowspan="2">SESI SIANG (13.00-15.00 WITA)</td>
+                    <td >SESI SIANG (13.00-15.00 WITA)</td>
                     <td>Aula Lt. 4</td>
-                    <td>20241121-291 s.d 20241121-530</td>
+                    <td>20241121-291 s.d 20241121-545</td>
                 </tr>
-                <tr>
-                   
-                    <td>Teater Lt. 4</td>
-                    <td>20241121-531 s.d 20241121-580</td>
-                </tr>
+               
              
             </table>
         </div>
@@ -137,7 +133,7 @@
                 var room1Table = $("#room1Table");
                 var room2Table = $("#room2Table");
                 var room3Table = $("#room3Table");
-                var room4Table = $("#room4Table");
+              
                 
 
                 var tbInfo = $("#tbInfo");
@@ -147,7 +143,7 @@
                     room1Table.show();
                     room2Table.hide();
                     room3Table.hide();
-                    room4Table.hide();
+                 
                  
                     tbInfo.hide();
                 //408 sesi pagi    
@@ -155,25 +151,18 @@
                     room1Table.hide();
                     room2Table.show();
                     room3Table.hide();
-                    room4Table.hide();
+                 
                   
                     tbInfo.hide();
                 //409 sesi pagi
-                }   else if (participantNumber >= 291 && participantNumber <= 530) {
+                }   else if (participantNumber >= 291 && participantNumber <= 545) {
                     room1Table.hide();
                     room2Table.hide();
                     room3Table.show();
-                    room4Table.hide();
+                  
                   
                     tbInfo.hide();
                 //aula sesi siang    
-                } else if (participantNumber >= 530 && participantNumber <= 580) {
-                    room1Table.hide();
-                    room2Table.hide();
-                    room3Table.hide();
-                    room4Table.show();
-                   
-                    tbInfo.hide();
                 }  else {
                     room1Table.hide();
                     room2Table.hide();
@@ -228,13 +217,13 @@
     function generateDenah() {
         var roomLayoutAulaPagi = generateRoomLayout(240, 15, 16, 'TopLeft', 1);
         var roomLayoutTeaterPagi = generateRoomLayout(290, 10, 5, 'bottomRight', 241);
-        var roomLayoutAulaSiang = generateRoomLayout(530, 15, 16, 'TopLeft', 291);
-        var roomLayoutTeaterSiang = generateRoomLayout(580, 10, 5, 'bottomRight', 531);
+        var roomLayoutAulaSiang = generateRoomLayout(545, 15, 17, 'TopLeft', 291);
+       
 
         document.getElementById('roomLayoutAulaPagi').innerHTML = roomLayoutAulaPagi;
         document.getElementById('roomLayoutTeaterPagi').innerHTML = roomLayoutTeaterPagi;
         document.getElementById('roomLayoutAulaSiang').innerHTML = roomLayoutAulaSiang;
-        document.getElementById('roomLayoutTeaterSiang').innerHTML = roomLayoutTeaterSiang;
+      
     }
 
 
