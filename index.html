@@ -132,43 +132,28 @@
 
                 var room1Table = $("#room1Table");
                 var room2Table = $("#room2Table");
-                var room3Table = $("#room3Table");
-              
-                
-
+                var room3Table = $("#room3Table");   
                 var tbInfo = $("#tbInfo");
                 
-                //aula sesi pagi
                 if (participantNumber >= 1 && participantNumber <= 240) {
                     room1Table.show();
                     room2Table.hide();
                     room3Table.hide();
-                 
-                 
-                    tbInfo.hide();
-                //408 sesi pagi    
+                    tbInfo.hide();              
                 } else if (participantNumber >= 241 && participantNumber <= 290) {
                     room1Table.hide();
                     room2Table.show();
                     room3Table.hide();
-                 
-                  
-                    tbInfo.hide();
-                //409 sesi pagi
+                    tbInfo.hide();             
                 }   else if (participantNumber >= 291 && participantNumber <= 545) {
                     room1Table.hide();
                     room2Table.hide();
-                    room3Table.show();
-                  
-                  
+                    room3Table.show();   
                     tbInfo.hide();
-                //aula sesi siang    
                 }  else {
                     room1Table.hide();
                     room2Table.hide();
-                    room3Table.hide();
-                    room4Table.hide();
-                  
+                    room3Table.hide();                                  
                     tbInfo.show();
                 }
             }
@@ -217,54 +202,37 @@
     function generateDenah() {
         var roomLayoutAulaPagi = generateRoomLayout(240, 15, 16, 'TopLeft', 1);
         var roomLayoutTeaterPagi = generateRoomLayout(290, 10, 5, 'bottomRight', 241);
-        var roomLayoutAulaSiang = generateRoomLayout(545, 15, 17, 'TopLeft', 291);
-       
-
+        var roomLayoutAulaSiang = generateRoomLayout(545, 15, 17, 'TopLeft', 291);    
         document.getElementById('roomLayoutAulaPagi').innerHTML = roomLayoutAulaPagi;
         document.getElementById('roomLayoutTeaterPagi').innerHTML = roomLayoutTeaterPagi;
         document.getElementById('roomLayoutAulaSiang').innerHTML = roomLayoutAulaSiang;
-      
     }
-
 
     generateDenah();
 
-            // Fungsi untuk mengatur warna sel
-          // Fungsi untuk mengatur warna sel
+// Fungsi untuk mengatur warna sel
 function setCellColors() {
-
     var paddedNumbere = ("00" + participantNumber).slice(-3);
-
     $("table td").removeClass("red-cell blue-cell");
 
-                // Set warna merah pada sel yang berisi nomor peserta yang dipilih
-                $("table td").filter(function () {
-                    return $(this).text() === paddedNumbere && /^\d+$/.test(paddedNumbere);
-                }).addClass("red-cell");
-
-                // Set warna biru pada kolom dan baris yang sesuai dengan nomor peserta
-             //   var column = $("table td:contains(" + paddedNumbere + ")").index();
-             //   var row = $("table td:contains(" + paddedNumbere + ")").parent().index();
-            //    $("table td").filter(function () {
-            //        return $(this).parent().index() === row || $(this).index() === column;
-            //    }).addClass("blue-cell");
-
+     // Set warna merah pada sel yang berisi nomor peserta yang dipilih
+     $("table td").filter(function () {
+         return $(this).text() === paddedNumbere && /^\d+$/.test(paddedNumbere);
+      }).addClass("red-cell");
 }
 
-            // Fungsi untuk mendeteksi perubahan pada input nomor peserta
-            $("#participantNumber").on("input", function () {
-                participantNumber = $(this).val();
-                displayTable();
-                setCellColors();
-            });
+// Fungsi untuk mendeteksi perubahan pada input nomor peserta
+$("#participantNumber").on("input", function () {
+   participantNumber = $(this).val();
+   displayTable();
+   setCellColors();
+});
 
-            // Inisialisasi warna sel saat halaman dimuat
-            setCellColors();
+// Inisialisasi warna sel saat halaman dimuat
+setCellColors();
             
-
-        });
+});
 
     </script>
 </body>
-
 </html>
