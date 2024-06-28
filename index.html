@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -67,55 +68,43 @@
                     <td>Nomor Peserta</td>
                 </tr>
                 <tr>
-                    <td rowspan="3">Sabtu / 25 Mei 2024</td>
-                    <td rowspan="2">SESI PAGI ( 09.00 -11.00 WITA )</td>
+                    <td rowspan="2">Sabtu / 27 Juli 2024</td>
+                    <td>SESI PAGI ( 09.00 -11.00 WITA )</td>
                     <td>Aula Lt. 4</td>
-                    <td>20241121-001 s.d 20241121-240</td>
+                    <td>20241122-001 s.d 20241122-240</td>
                 </tr>
-                <tr>
-                    
-                    <td>Teater Lt. 4</td>
-                    <td>20241121-241 s.d 20241121-290</td>
-                </tr>
+               
               
-                <tr>
-                  
+                <tr>                  
                     <td >SESI SIANG (13.00-15.00 WITA)</td>
                     <td>Aula Lt. 4</td>
-                    <td>20241121-291 s.d 20241121-545</td>
+                    <td>20241122-241 s.d 20241122-420</td>
                 </tr>
                
              
             </table>
+			<div><b><em>Catatan : Untuk Ruang dan Denah ini sewaktu-waktu dapat berubah menyesuaikan jumlah peserta yang terdaftar, harap cek secara berkala terutama 1 minggu sebelum pelaksanaan TPA </em></b></div>
         </div>
+		
+		
 
         <div id="room1Table" style="display: none;">
             <p>
-                <b>Hari / Tanggal : Sabtu, 25 Mei 2024<br>
+                <b>Hari / Tanggal : Sabtu, 27 Juli 2024<br>
                 <b>Lokasi Ujian : Ruang Aula Lt. 4 - Sesi : Pagi (09.00 -11.00 WITA)</b></p><b>Denah Ruangan :</b>
                 </p>
                 <div id="roomLayoutAulaPagi"></div>
         </div>
-        <div id="room2Table" style="display: none;">            
-            <p><b>Hari / Tanggal : Sabtu, 25 Mei 2024<br>
-                Lokasi TPA : Ruang Teater Lt. 4 - Sesi : Pagi (09.00 -11.00 WITA)</b></p><b>Denah Ruangan :</b>
-            </p>
-            <div id="roomLayoutTeaterPagi"></div>
-        </div>
+        
 
-        <div id="room3Table" style="display: none;">
+        <div id="room2Table" style="display: none;">
             <p>
-                <b>Hari / Tanggal : Sabtu, 25 Mei 2024<br>
+                <b>Hari / Tanggal : Sabtu, 27 Juli 2024<br>
                 <b>Lokasi Ujian : Ruang Aula Lt. 4 - Sesi : Siang (13.00-15.00 WITA)</b></p><b>Denah Ruangan :</b>
                 </p>
                 <div id="roomLayoutAulaSiang"></div>
         </div>
-        <div id="room4Table" style="display: none;">            
-            <p><b>Hari / Tanggal : Sabtu, 25 Mei 2024<br>
-                Lokasi TPA : Ruang Teater Lt. 4 - Sesi : Siang (13.00-15.00 WITA)</b></p><b>Denah Ruangan :</b>
-            </p>
-            <div id="roomLayoutTeaterSiang"></div>
-        </div>
+       
         
        
        
@@ -132,28 +121,21 @@
 
                 var room1Table = $("#room1Table");
                 var room2Table = $("#room2Table");
-                var room3Table = $("#room3Table");   
+               // var room3Table = $("#room3Table");   
                 var tbInfo = $("#tbInfo");
                 
-                if (participantNumber >= 1 && participantNumber <= 240) {
+                if (participantNumber >= 1 && participantNumber <= 210) {
                     room1Table.show();
-                    room2Table.hide();
-                    room3Table.hide();
+                    room2Table.hide();                   
                     tbInfo.hide();              
-                } else if (participantNumber >= 241 && participantNumber <= 290) {
+                } else if (participantNumber >= 211 && participantNumber <= 420) {
                     room1Table.hide();
-                    room2Table.show();
-                    room3Table.hide();
-                    tbInfo.hide();             
-                }   else if (participantNumber >= 291 && participantNumber <= 545) {
-                    room1Table.hide();
-                    room2Table.hide();
-                    room3Table.show();   
-                    tbInfo.hide();
+                    room2Table.show();                   
+                    tbInfo.hide();            
+                
                 }  else {
                     room1Table.hide();
-                    room2Table.hide();
-                    room3Table.hide();                                  
+                    room2Table.hide();                                               
                     tbInfo.show();
                 }
             }
@@ -200,11 +182,11 @@
 
      // Function to generate room layout and display it
     function generateDenah() {
-        var roomLayoutAulaPagi = generateRoomLayout(240, 15, 16, 'TopLeft', 1);
-        var roomLayoutTeaterPagi = generateRoomLayout(290, 10, 5, 'bottomRight', 241);
-        var roomLayoutAulaSiang = generateRoomLayout(545, 15, 17, 'TopLeft', 291);    
+        var roomLayoutAulaPagi = generateRoomLayout(210, 15, 14, 'TopLeft', 1);
+        //var roomLayoutTeaterPagi = generateRoomLayout(290, 10, 5, 'bottomRight', 241);
+        var roomLayoutAulaSiang = generateRoomLayout(420, 15, 14, 'TopLeft', 211);    
         document.getElementById('roomLayoutAulaPagi').innerHTML = roomLayoutAulaPagi;
-        document.getElementById('roomLayoutTeaterPagi').innerHTML = roomLayoutTeaterPagi;
+     //   document.getElementById('roomLayoutTeaterPagi').innerHTML = roomLayoutTeaterPagi;
         document.getElementById('roomLayoutAulaSiang').innerHTML = roomLayoutAulaSiang;
     }
 
