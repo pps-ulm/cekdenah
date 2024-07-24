@@ -56,29 +56,31 @@
     <center>
         <p>
         <h3>Masukan 3 digit terakhir No Peserta Anda : <input type="number" id="participantNumber"
-                placeholder="Nomor Peserta" min="0" max="545"></h3>
+                placeholder="Nomor Peserta" min="0" max="675"></h3>
         </p>
 
         <div id="tbInfo">
             <table width="80%">
                 <tr>
-                    <td>Hari / Tanggal</td>
-                    <td>Sesi / Waktu</td>
-                    <td>Ruang Ujian</td>
+                   <td>Hari / Tanggal</td>
+		    <td>Ruang Ujian</td>
+                    <td>Sesi / Waktu</td>                   
                     <td>Nomor Peserta</td>
                 </tr>
                 <tr>
-                    <td rowspan="2">Sabtu / 27 Juli 2024</td>
-                    <td>SESI PAGI ( 09.00 -11.00 WITA )</td>
-                    <td>Aula Lt. 4</td>
-                    <td>20241122-001 s.d 20241122-210</td>
+                    <td rowspan="3">Sabtu / 27 Juli 2024</td>
+					<td rowspan="3">Aula Lt. 4</td>
+                    <td>SESI 1 (09.00-11.00 WITA )</td>                   
+                    <td>20241122-001 s.d 20241122-225</td>
                 </tr>
-               
-              
                 <tr>                  
-                    <td >SESI SIANG (13.00-15.00 WITA)</td>
-                    <td>Aula Lt. 4</td>
-                    <td>20241122-211 s.d 20241122-420</td>
+                    <td >SESI 2 (12.00-14.00 WITA)</td>                  
+                    <td>20241122-226 s.d 20241122-450</td>
+                </tr>
+				
+				 <tr>                  
+                    <td >SESI 3 (15.00-17.00 WITA)</td>                  
+                    <td>20241122-451 s.d 20241122-675</td>
                 </tr>
                
              
@@ -91,21 +93,27 @@
         <div id="room1Table" style="display: none;">
             <p>
                 <b>Hari / Tanggal : Sabtu, 27 Juli 2024<br>
-                <b>Lokasi Ujian : Ruang Aula Lt. 4 - Sesi : Pagi (09.00 -11.00 WITA)</b></p><b>Denah Ruangan :</b>
+                <b>Lokasi Ujian : Ruang Aula Lt. 4 - Sesi 1 : Pagi (09.00-11.00 WITA)</b></p><b>Denah Ruangan :</b>
                 </p>
-                <div id="roomLayoutAulaPagi"></div>
+                <div id="roomLayoutAulaSesi1"></div>
         </div>
         
 
         <div id="room2Table" style="display: none;">
             <p>
                 <b>Hari / Tanggal : Sabtu, 27 Juli 2024<br>
-                <b>Lokasi Ujian : Ruang Aula Lt. 4 - Sesi : Siang (13.00-15.00 WITA)</b></p><b>Denah Ruangan :</b>
+                <b>Lokasi Ujian : Ruang Aula Lt. 4 - Sesi 2 : Siang (12.00-14.00 WITA)</b></p><b>Denah Ruangan :</b>
                 </p>
-                <div id="roomLayoutAulaSiang"></div>
+                <div id="roomLayoutAulaSesi2"></div>
         </div>
        
-        
+         <div id="room3Table" style="display: none;">
+            <p>
+                <b>Hari / Tanggal : Sabtu, 27 Juli 2024<br>
+                <b>Lokasi Ujian : Ruang Aula Lt. 4 - Sesi 3 : Sore (15.00-17.00 WITA)</b></p><b>Denah Ruangan :</b>
+                </p>
+                <div id="roomLayoutAulaSesi3"></div>
+        </div>
        
        
     </center>
@@ -120,22 +128,31 @@
             function displayTable() {
 
                 var room1Table = $("#room1Table");
-                var room2Table = $("#room2Table");
-               // var room3Table = $("#room3Table");   
+                var room2Table = $("#room2Table");				
+                var room3Table = $("#room3Table");   
                 var tbInfo = $("#tbInfo");
                 
-                if (participantNumber >= 1 && participantNumber <= 210) {
+                if (participantNumber >= 1 && participantNumber <= 225) {
                     room1Table.show();
-                    room2Table.hide();                   
+                    room2Table.hide();   
+					room3Table.hide();  					
                     tbInfo.hide();              
-                } else if (participantNumber >= 211 && participantNumber <= 420) {
+                } else if (participantNumber >= 226 && participantNumber <= 450) {
                     room1Table.hide();
-                    room2Table.show();                   
+                    room2Table.show();   
+					room3Table.hide();                     
                     tbInfo.hide();            
                 
-                }  else {
+                }  else if (participantNumber >= 451 && participantNumber <= 675) {
                     room1Table.hide();
-                    room2Table.hide();                                               
+                    room2Table.hide();   
+					room3Table.show();                     
+                    tbInfo.hide();   
+				
+				}	else {
+                    room1Table.hide();
+                    room2Table.hide();  
+					room3Table.hide(); 					
                     tbInfo.show();
                 }
             }
@@ -182,12 +199,12 @@
 
      // Function to generate room layout and display it
     function generateDenah() {
-        var roomLayoutAulaPagi = generateRoomLayout(210, 15, 14, 'TopLeft', 1);
-        //var roomLayoutTeaterPagi = generateRoomLayout(290, 10, 5, 'bottomRight', 241);
-        var roomLayoutAulaSiang = generateRoomLayout(420, 15, 14, 'TopLeft', 211);    
-        document.getElementById('roomLayoutAulaPagi').innerHTML = roomLayoutAulaPagi;
-     //   document.getElementById('roomLayoutTeaterPagi').innerHTML = roomLayoutTeaterPagi;
-        document.getElementById('roomLayoutAulaSiang').innerHTML = roomLayoutAulaSiang;
+        var roomLayoutAulaSesi1 = generateRoomLayout(225, 15, 15, 'TopLeft', 1);
+        var roomLayoutAulaSesi2 = generateRoomLayout(450, 15, 15, 'TopLeft', 226);    
+		var roomLayoutAulaSesi3 = generateRoomLayout(675, 15, 15, 'TopLeft', 451); 
+        document.getElementById('roomLayoutAulaSesi1').innerHTML = roomLayoutAulaSesi1;
+		document.getElementById('roomLayoutAulaSesi2').innerHTML = roomLayoutAulaSesi2;
+		document.getElementById('roomLayoutAulaSesi3').innerHTML = roomLayoutAulaSesi3;
     }
 
     generateDenah();
