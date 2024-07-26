@@ -80,7 +80,7 @@
 				
 				 <tr>                  
                     <td >SESI 3 (15.00-17.00 WITA)</td>                  
-                    <td>20241122-451 s.d 20241122-632</td>
+                    <td>20241122-451 s.d 20241122-636</td>
                 </tr>
                
              
@@ -135,24 +135,24 @@
                 if (participantNumber >= 1 && participantNumber <= 225) {
                     room1Table.show();
                     room2Table.hide();   
-					room3Table.hide();  					
+		    room3Table.hide();  					
                     tbInfo.hide();              
                 } else if (participantNumber >= 226 && participantNumber <= 450) {
                     room1Table.hide();
                     room2Table.show();   
-					room3Table.hide();                     
+		    room3Table.hide();                     
                     tbInfo.hide();            
                 
-                }  else if (participantNumber >= 451 && participantNumber <= 632) {
+                }  else if (participantNumber >= 451 && participantNumber <= 636) {
                     room1Table.hide();
                     room2Table.hide();   
-					room3Table.show();                     
+		    room3Table.show();                     
                     tbInfo.hide();   
 				
 				}	else {
                     room1Table.hide();
                     room2Table.hide();  
-					room3Table.hide(); 					
+		    room3Table.hide(); 					
                     tbInfo.show();
                 }
             }
@@ -201,7 +201,7 @@
     function generateDenah() {
         var roomLayoutAulaSesi1 = generateRoomLayout(225, 15, 15, 'TopLeft', 1);
         var roomLayoutAulaSesi2 = generateRoomLayout(450, 15, 15, 'TopLeft', 226);    
-		var roomLayoutAulaSesi3 = generateRoomLayout(632, 15, 13, 'TopLeft', 451); 
+		var roomLayoutAulaSesi3 = generateRoomLayout(636, 15, 13, 'TopLeft', 451); 
         document.getElementById('roomLayoutAulaSesi1').innerHTML = roomLayoutAulaSesi1;
 		document.getElementById('roomLayoutAulaSesi2').innerHTML = roomLayoutAulaSesi2;
 		document.getElementById('roomLayoutAulaSesi3').innerHTML = roomLayoutAulaSesi3;
